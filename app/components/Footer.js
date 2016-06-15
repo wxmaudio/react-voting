@@ -6,7 +6,7 @@ import FooterActions from '../actions/FooterActions';
 class Footer extends React.Component{
 	constructor(props){
 		super(props);
-		this.state = FooterStore.getState();
+		this.state = FooterStore.getState() || {};
 		this.onChange = this.onChange.bind(this);
 	}
 
@@ -24,16 +24,16 @@ class Footer extends React.Component{
 	}
 
 	render(){
-		console.log(this.state);
-		let leaderboardCharacters = this.state.characters.map((character)=>{
-			return (
-	        <li key={character.characterId}>
-	          <Link to={'/characters/' + character.characterId}>
-	            <img className='thumb-md' src={'http://image.eveonline.com/Character/' + character.characterId + '_128.jpg'} />
-	          </Link>
-	        </li>
-	      )
-		});
+		//console.log(this.state);
+		let leaderboardCharacters = (this.state.characters || []).map(function(character) {
+      return (
+        <li key={character.characterId}>
+          <Link to={'/characters/' + character.characterId}>
+            <img className='thumb-md' src={'http://image.eveonline.com/Character/' + character.characterId + '_128.jpg'} />
+          </Link>
+        </li>
+      );
+    });
 
 	return (
       <footer>
