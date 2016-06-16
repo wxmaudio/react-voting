@@ -156,6 +156,7 @@ var Footer = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       _FooterStore2.default.listen(this.onChange);
+      //调用getTopCharacters Action
       _FooterActions2.default.getTopCharacters();
     }
   }, {

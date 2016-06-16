@@ -12,6 +12,7 @@ class Footer extends React.Component{
 
 	componentDidMount(){
 		FooterStore.listen(this.onChange);
+		//调用getTopCharacters Action
 		FooterActions.getTopCharacters();
 	}
 
