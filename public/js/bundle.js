@@ -444,7 +444,7 @@ var Navbar = function (_React$Component) {
       _NavbarStore2.default.listen(this.onChange);
       _NavbarActions2.default.getCharacterCount();
 
-      var socket = io.connnect();
+      var socket = io.connect();
 
       socket.on('onlineUsers', function (data) {
         _NavbarActions2.default.updateOnlineUsers(data);
