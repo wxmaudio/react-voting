@@ -468,7 +468,8 @@ var Navbar = function (_React$Component) {
   }, {
     key: 'onChange',
     value: function onChange(state) {
-      this.state = state;
+      //this.state = state;
+      this.setState(state);
     }
   }, {
     key: 'handleSubmit',

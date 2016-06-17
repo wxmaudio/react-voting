@@ -37,12 +37,13 @@ class Navbar extends React.Component{
 	}
 
 	onChange(state){
-		this.state = state;
+		//this.state = state;
+		this.setState(state);
 	}
 
 	handleSubmit(e){
 		e.preventDefault();
-
+          
 		let searchQuery = this.state.searchQuery.trim();
 
 		if(searchQuery){
@@ -56,7 +57,7 @@ class Navbar extends React.Component{
 	}
 
 	render(){
-    return (
+     return (
       <nav className='navbar navbar-default navbar-static-top'>
         <div className='navbar-header'>
           <button type='button' className='navbar-toggle collapsed' data-toggle='collapse' data-target='#navbar'>

@@ -48,10 +48,9 @@ var onlineUsers = 0;
 
 io.sockets.on('connection', function(socket){//服务器端
   onlineUsers ++;
-
   io.sockets.emit('onlineUsers',{onlineUsers:onlineUsers});
 
-  sockets.on('disconnect', function(){//客户端
+  socket.on('disconnect', function(){//客户端
      onlineUsers --;
      io.sockets.emit('onlineUsers',{onlineUsers:onlineUsers});
   })
