@@ -12,6 +12,10 @@ var path = require('path');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 
+var mongoose = require('mongoose');
+var config = require('./config');
+var Character = require('./models/character');
+
 var app = express();
 
 app.set('port',process.env.port || '8000');
@@ -37,6 +41,14 @@ app.use(function(req, res) {
       res.status(404).send('Page Not Found')
     }
   });
+});
+
+/**
+ * Database
+ */
+mongoose.connect(config.database);
+mongoose.connection.on('error', function() {
+  console.info('Error: Could not connect to MongoDB. Did you forget to run `mongod`?');
 });
 
 /**
