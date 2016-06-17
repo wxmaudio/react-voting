@@ -165,6 +165,10 @@ exports.default = new _alt2.default();
 },{"alt":"alt"}],5:[function(require,module,exports){
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = require('react');
@@ -195,7 +199,6 @@ var AddCharacter = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(AddCharacter).call(this, props));
 
-    console.log("init AddCharacter");
     _this.state = _AddCharacterStore2.default.getState();
     _this.onChange = _this.onChange.bind(_this);
     return _this;
@@ -217,15 +220,24 @@ var AddCharacter = function (_React$Component) {
       this.setState(state);
     }
   }, {
-    key: 'handeleSubmit',
-    value: function handeleSubmit(e) {
-      e.preventDefault();
+    key: 'handleSubmit',
+    value: function handleSubmit(event) {
+      event.preventDefault();
+
       var name = this.state.name.trim();
       var gender = this.state.gender;
 
       if (!name) {
         _AddCharacterActions2.default.invalidName();
         this.refs.nameTextField.getDOMNode().focus();
+      }
+
+      if (!gender) {
+        _AddCharacterActions2.default.invalidGender();
+      }
+
+      if (name && gender) {
+        _AddCharacterActions2.default.addCharacter(name, gender);
       }
     }
   }, {
@@ -312,6 +324,8 @@ var AddCharacter = function (_React$Component) {
 
   return AddCharacter;
 }(_react2.default.Component);
+
+exports.default = AddCharacter;
 
 },{"../actions/AddCharacterActions":1,"../stores/AddCharacterStore":12,"react":"react"}],6:[function(require,module,exports){
 'use strict';
