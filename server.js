@@ -20,6 +20,8 @@ var async = require('async');
 var request = require('request');
 var xml2js = require('xml2js');
 
+var _ = require('underscore');
+
 var app = express();
 
 app.set('port',process.env.port || '8000');
@@ -99,9 +101,46 @@ app.post('/api/characters',function(req, res, next){
   ]);
 })
 
+/**
+ * GET /api/characters
+ * Returns 2 random characters of the same gender that have not been voted yet.
+ */
+app.get('/api/characters', function(req, res, next){
+    var choices = ['Female', 'male'];
+    var randomGender = _.sample(choices);
 
+    Character.find({random:{$near:[Math.random(), 0] } })
+    .where('voted',false)
+    .where('gender',randomGender)
+    .limit(2)
+    .exec(function(err,characters){
+       if(err) return next(err);
 
+       if(characters.length ===2){
+          return res.send(characters);
+       }
 
+       Character.update({},{$set:{voted:false}},{muti:true},function(err){
+          if(err) return next(err);
+          res.send([]);
+       })
+    })
+})
+
+/**
+ * PUT /api/characters
+ * Update winning and losing count for both characters.
+ */
+app.put('/api/characters', function(req, res, next) {
+  var winner = req.body.winner;
+  var loser = req.body.loser;
+
+  if(!winner || !loser){
+    return res.status(400).send({message:
+  'Voting needs two characters'});
+  }
+
+})
 
 
 app.use(function(req, res) {
