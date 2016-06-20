@@ -97,8 +97,12 @@ app.post('/api/characters',function(req, res, next){
       })
     }
   ]);
-
 })
+
+
+
+
+
 
 app.use(function(req, res) {
 /**服务器端渲染react**/
