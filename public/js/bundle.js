@@ -1437,7 +1437,7 @@ exports.default = _react2.default.createElement(
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+		value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -1455,56 +1455,56 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var AddCharacterStore = function () {
-	function AddCharacterStore() {
-		_classCallCheck(this, AddCharacterStore);
+		function AddCharacterStore() {
+				_classCallCheck(this, AddCharacterStore);
 
-		this.bindActions(_AddCharacterActions2.default);
-		this.name = '';
-		this.gender = '';
-		this.helpBlock = '';
-		this.nameValidationState = '';
-		this.genderValidationState = '';
-	}
+				this.bindActions(_AddCharacterActions2.default);
+				this.name = '';
+				this.gender = '';
+				this.helpBlock = '';
+				this.nameValidationState = '';
+				this.genderValidationState = '';
+		}
 
-	_createClass(AddCharacterStore, [{
-		key: 'onAddCharacterSuccess',
-		value: function onAddCharacterSuccess(successMessage) {
-			this.nameValidationState = 'has-success';
-			this.helpBlock = successMessage;
-		}
-	}, {
-		key: 'onAddCharacterFail',
-		value: function onAddCharacterFail(errorMessage) {
-			this.nameValidationState = 'has-error';
-			this.helpBlock = errorMessage;
-		}
-	}, {
-		key: 'onUpdateName',
-		value: function onUpdateName(event) {
-			this.name = event.target.value;
-			this.nameValidationState = '';
-			this.helpBlock = '';
-		}
-	}, {
-		key: 'onUpdateGender',
-		value: function onUpdateGender(event) {
-			this.gender = event.target.value;
-			this.genderValidationState = '';
-		}
-	}, {
-		key: 'onInvalidName',
-		value: function onInvalidName() {
-			this.nameValidationState = 'has-error';
-			this.helpBlock = 'Please enter a character name.';
-		}
-	}, {
-		key: 'onInvalidGender',
-		value: function onInvalidGender() {
-			this.genderValidationState = 'has-error';
-		}
-	}]);
+		_createClass(AddCharacterStore, [{
+				key: 'onAddCharacterSuccess',
+				value: function onAddCharacterSuccess(successMessage) {
+						this.nameValidationState = 'has-success';
+						this.helpBlock = successMessage;
+				}
+		}, {
+				key: 'onAddCharacterFail',
+				value: function onAddCharacterFail(errorMessage) {
+						this.nameValidationState = 'has-error';
+						this.helpBlock = errorMessage;
+				}
+		}, {
+				key: 'onUpdateName',
+				value: function onUpdateName(event) {
+						this.name = event.target.value;
+						this.nameValidationState = '';
+						this.helpBlock = '';
+				}
+		}, {
+				key: 'onUpdateGender',
+				value: function onUpdateGender(event) {
+						this.gender = event.target.value;
+						this.genderValidationState = '';
+				}
+		}, {
+				key: 'onInvalidName',
+				value: function onInvalidName() {
+						this.nameValidationState = 'has-error';
+						this.helpBlock = 'Please enter a character name.';
+				}
+		}, {
+				key: 'onInvalidGender',
+				value: function onInvalidGender() {
+						this.genderValidationState = 'has-error';
+				}
+		}]);
 
-	return AddCharacterStore;
+		return AddCharacterStore;
 }();
 
 exports.default = _alt2.default.createStore(AddCharacterStore);
