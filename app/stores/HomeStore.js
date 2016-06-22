@@ -1,6 +1,6 @@
 import alt from '../alt';
-import HomeActions from '../actions/HomeStore';
-import toastr from 'toastr';
+import HomeActions from '../actions/HomeActions';
+//import toastr from 'toastr';
 
 class HomeStore{
 	constructor(){
@@ -20,3 +20,5 @@ class HomeStore{
 		toastr.error(errMessage);
 	}
 }
+
+export default alt.createStore(HomeStore);

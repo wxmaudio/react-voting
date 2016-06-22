@@ -1,4 +1,4 @@
-import Alt from '../alt';
+import alt from '../alt';
 
 class HomeActions{
 	constructor(){

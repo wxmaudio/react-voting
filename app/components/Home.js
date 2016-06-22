@@ -13,7 +13,7 @@ class Home extends React.Component {
 
 	componentDidMount(){
 		HomeStore.listen(this.onChange);
-		HomeActions.getTwoCharactors();
+		HomeActions.getTwoCharacters();
 	}
 
 	componentWillUnMount(){
@@ -26,7 +26,7 @@ class Home extends React.Component {
 
 	handleClick(character){
 		var winner = character.characterId;
-		var lose = first(without(this.state.characters,findWhere(this.state.characters, { characterId: winner }))).characterId;
+		var loser = first(without(this.state.characters,findWhere(this.state.characters, { characterId: winner }))).characterId;
 		HomeActions.vote(winner, loser);
 	}
 
