@@ -32,7 +32,7 @@ class CharacterStore{
 
 	onReportSuccess(){
 		this.isReported = true;
-		let localData = localStorage.getItem('NEF')? JSON.parse(localStroage.getItem('NEF'):{});
+		let localData = localStorage.getItem('NEF')? JSON.parse(localStroage.getItem('NEF')):{};
 		localData.reports = localData.reports || [];
 		localData.reports.push(this.characterId);
 		localStorage.setItem('NEF',JSON.stringfy(localData));
