@@ -70,8 +70,8 @@ class Character extends React.Component{
       </div>
 	}
 }
-/*Character.contextTypes = {
+Character.contextTypes = {
 	router:React.PropTypes.func.isRequired
-}*/
+}
 
 export default Character;
